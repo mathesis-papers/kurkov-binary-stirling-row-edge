@@ -1,0 +1,472 @@
+{
+  "nodes": [
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s1",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s1",
+      "kind": "paper",
+      "label": "Theorem",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s1",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "For every $n\\geq0$, all $T(n,k)$ are nonnegative integers and\n\\[\n T(n,k)>0\\ \\Longleftrightarrow\\ 1\\leq k\\leq\\wt(n)+2.\n \\qquad\n T(n,\\wt(n)+2)=e(n).\n\\]\nIn particular, $e(n)$ is a positive integer, including $e(0)=1$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s10",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s10",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s10",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "The second conjectured formula in A373183, revision 28, and\nConjecture 6 in A329369, revision 236 (June 5, 2024), hold with the range\n\\begin{equation}\n n,m\\geq0,\\qquad 0\\leq q<2^m:\n \\qquad b(2^mn+q)=\\sum_{i=1}^{\\wt(n)+1}\n P(n,i)b(2^m(2^{i-1}-1)+q).\n\\end{equation}\nTheir printed range $q\\geq0$, with no upper bound, fails at\n$(n,m,q)=(2,0,1)$: the left side is $1$ and the right side is $7$.\nFor the June 19, 2024 generalized $d$ sum in A373183, a valid range is\n$n>0$, $k>0$, $m\\geq0$, $0\\leq q<2^m$, and the identity is\n\\begin{equation}\n k!\\,\\mathrm{A357990}(2^mn+q,k)\n =\\sum_{i=1}^{\\wt(n)+k}d(n,k,\\wt(n)-i+k+1)\n       b(2^m(2^{i-1}-1)+q).\n\\end{equation}\nThe printed generalized range also fails at $(n,k,m,q)=(0,2,1,0)$:\nthe two sides are $2$ and $4$ respectively.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s11",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s11",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s11",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "For all $n\\geq0$,\n\\[\n b(n)\\geq2e(n)-1.\n\\]\nFor $n>0$, equality holds exactly when deleting the leading one-bit\nleaves only trailing ones (zero is allowed). Equality also holds at zero.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s12",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s12",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s12",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "For $L,k\\geq0$,\n\\[\n \\sum_{\\substack{0\\leq n<2^L\\\\\\wt(n)=k}}b(n)\n =\\genfrac{\\langle}{\\rangle}{0pt}{}{L+1}{k},\n \\qquad \\sum_{0\\leq n<2^L}b(n)=(L+1)!,\n\\]\nwhere the Eulerian number in brackets counts permutations of $L+1$\nelements with exactly $k$ excedances.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s2",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s2",
+      "kind": "paper",
+      "label": "Lemma",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s2",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "For $r,h\\geq0$ and $k\\geq2$,\n\\begin{equation}\n T(2^r(2h+1),k)=(k-1)^rT(h,k-1)+k^{r+1}T(h,k).\n\\end{equation}",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s3",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s3",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s3",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "If $n=\\sum_{j=1}^{w}2^{b_j}>0$ with $0\\leq b_1<\\cdots<b_w$, put\n$d_1=b_1$ and $d_j=b_j-b_{j-1}-1$ for $j>1$. Then\n\\begin{equation}\n e(n)=\\prod_{j=1}^{w}(w-j+2)^{d_j}.\n\\end{equation}\nThe empty product gives $e(0)=1$. Furthermore, for $m,n\\geq0$,\n\\begin{align}\n e(2n+1)&=e(n),&e(2n)&=(1+\\wt(n))e(n),\\\\\n e(2^m(2n+1))&=\\sum_{j=0}^{m}\\binom mj e(2^j n),\\\\\n a(2^m(2n+1))&=\\sum_{j=0}^{m+1}\\binom{m+1}j a(2^j n).\n\\end{align}",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s4",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s4",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s4",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "Let $n=2^L+h>1$, $0\\leq h<2^L$, and write $\\epsilon_j$ for bit $j$\nof $h$. Then\n\\begin{align}\n a(n)&=2a(h)+\\sum_{j=0}^{L-1}a\\bigl(h+2^j(1-\\epsilon_j)\\bigr),\\\\\n e(n)&=e(h)+\\sum_{\\substack{0\\leq j<L\\\\\\epsilon_j=0}}e(h+2^j).\n \n\\end{align}\nThese are Kurkov's November 10, 2019 conjecture in A284005 and the\nApril 24, 2023 formula in A341392, respectively. The former also answers\nthe proof request in MathOverflow question 445013~\\cite{lowerquestion}.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s5",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s5",
+      "kind": "paper",
+      "label": "Theorem",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s5",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "For every $n\\geq0$, putting $w=\\wt(n)$, we have\n\\begin{equation}\n xR_n(x)=\\sum_{i=1}^{w+2}(-1)^{w+2-i}T(n,i)x^{\\overline i}.\n\\end{equation}\nIn particular, for $r,h\\geq0$,\n\\begin{equation}\n R_{2^r(2h+1)}(x)=\\sum_{i=1}^{\\wt(h)+2}\n (-1)^{\\wt(h)+2-i}T(h,i)i^r x^{\\overline i}.\n\\end{equation}",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s6",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s6",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s6",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "For all $n\\geq0$ and $q>0$,\n\\begin{equation}\n P(n,q)=(-1)^{\\wt(n)-q+1}\n       \\sum_{i=q+1}^{\\wt(n)+2}s(i,q+1)T(n,i).\n\\end{equation}\nFor $r,h\\geq0$ and $q>0$,\n\\begin{equation}\n P(2^r(2h+1),q)=(-1)^{\\wt(h)-q}\n       \\sum_{i=q}^{\\wt(h)+2}s(i,q)T(h,i)i^r.\n\\end{equation}\nThese prove, respectively, the final June 19, 2024 formula and the\nJanuary 17, 2025 conjecture in A373183, revision 28, FORMULA.\nMoreover,\n\\begin{equation}\n \\frac1x\\sum_{i=1}^{\\wt(n)+2}T(n,i)(x)_i\n =(-1)^{\\wt(n)+1}R_n(-x).\n\\end{equation}\nThus the conjectured identity in MathOverflow question 483753,\nDecember 7, 2024~\\cite{mo}, holds as a polynomial identity.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s7",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s7",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s7",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "For $r,h\\geq0$,\n\\begin{equation}\n b(2^r(2h+1))=\\sum_{i=1}^{\\wt(h)+2}\n (-1)^{\\wt(h)+2-i}i!i^rT(h,i).\n\\end{equation}\nThis proves the second conjectured formula in A358612, revision 52,\nFORMULA. For $h=2^j-1$, it specializes to Ehrenborg and\nSteingr\\'imsson's formula for two-block words~\\cite[Proposition 6.5]{excedance}.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s8",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s8",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s8",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "For $n\\geq0$,\n\\begin{equation}\n a(n)=\\sum_{k\\subseteq_2 n}b(k),\\qquad\n b(n)=\\sum_{k\\subseteq_2 n}(-1)^{\\wt(n)-\\wt(k)}a(k).\n\\end{equation}\nThe first identity is Kurkov's March 10, 2023 conjecture in A284005;\nthe second is the inverse-transform conjecture in A329369.\nThey are consequences of Ehrenborg and Steingr\\'imsson's\nLemma 6.2 and Theorem 6.3 (2000); the following proof gives their\noperator form in the present notation.\nJetfiRex's later answer~\\cite{jetfirex} discusses the same transform\nthrough constrained permutations and Boolean inversion.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s9",
+      "contributor": null,
+      "identity": "collected:kurkov-binary-stirling-row-edge:2:s9",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+      },
+      "lineage": "collected:kurkov-binary-stirling-row-edge:s9",
+      "macros": {
+        "\\wt": "\\operatorname{wt}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-binary-stirling-row-edge",
+      "scope": "in_scope",
+      "statement": "Let $\\mathcal L_n$ be the operator word that constructs $R_n$ from $x$,\nreading the shortest binary expansion of $n$, with $\\mathcal L_0=I$.\nFor an integer $k>0$ set $U_{n,k}=\\mathcal L_n x^{\\overline k}$.\nThen A357990$(n,k)=U_{n,k}(1)/k!$, and in particular\nA357990$(n,1)=b(n)$, its conjectured first column~\\cite{square}.\nIf\n\\[\n d(n,k,j)=[x^{\\wt(n)+k-j+1}]U_{n,k}(x),\n\\]\nwhere coefficients outside the polynomial are zero, these are precisely\nKurkov's $d$ coefficients in the June 19, 2024 formulas of A373183.\nThus those formulas for $P(n,q)$, for the generalized initial polynomial,\nand for $d(n,1,1)=e(n)$ hold.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-binary-stirling-row-edge"
+    }
+  ]
+}

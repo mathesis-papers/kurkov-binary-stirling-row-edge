@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 113639,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "ad9e6e927139b9fff960085ff878bed58d0661a78347e3ccccbb4e3d48ab820a",
+      "sha256": "ad9e6e927139b9fff960085ff878bed58d0661a78347e3ccccbb4e3d48ab820a"
+    },
+    "source": {
+      "bytes": 19003,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "cb557ba345c87328c9b5a20a188e6fb9dedca0cb77734f9f10821e6e6e98ee92",
+      "sha256": "cb557ba345c87328c9b5a20a188e6fb9dedca0cb77734f9f10821e6e6e98ee92"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "We prove Kurkov's row-edge conjecture in OEIS A358612, revision 52, FORMULA, first conjectured formula, for every nonnegative row index, and give a polynomial refinement of Ehrenborg and Steingrímsson's excedance formulas (2000, Lemma 6.2, Theorem 6.3 and Proposition 6.5) extending the binary-product consequences in Erlbacher's note (July 2026, Section 2 and Theorem 3.1). The last entry is A284005(n)/(1+wt(n))!, where wt is binary weight. A dyadic block formula gives integral positive support and identifies the complete row with a rising-factorial expansion of the polynomials in A373183. This proves the signed factorial companion in A358612, two Stirling-basis identities in A373183, and the conjectured identity in MathOverflow question 483753. We also prove the lower-bit and binomial identities in A284005 and A341392, rederive the known Boolean transform of excedance counts, and characterize equality in a sharp lower bound. The printed unrestricted suffix identities fail; corrected statements hold for 0<=q<2^m, with a nonzero prefix in the generalized initial-factorial version.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 113639,
+      "sha256": "ad9e6e927139b9fff960085ff878bed58d0661a78347e3ccccbb4e3d48ab820a",
+      "url": "/api/v1/collected-papers/kurkov-binary-stirling-row-edge/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-23T17:33:13.086154303Z",
+    "record": "kurkov-binary-stirling-row-edge",
+    "repository_name": "kurkov-binary-stirling-row-edge",
+    "source": {
+      "bytes": 19003,
+      "sha256": "cb557ba345c87328c9b5a20a188e6fb9dedca0cb77734f9f10821e6e6e98ee92",
+      "url": "/api/v1/collected-papers/kurkov-binary-stirling-row-edge/files/source?version=2"
+    },
+    "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-23T17:33:13.086154303Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "kurkov-binary-stirling-row-edge"
+  }
+}

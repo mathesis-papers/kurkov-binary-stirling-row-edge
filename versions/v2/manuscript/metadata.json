@@ -1,0 +1,20 @@
+{
+  "id": "kurkov-binary-stirling-row-edge",
+  "revision": 2,
+  "problem_ids": [
+    "oeis-a358612-row-edge",
+    "oeis-a284005-kurkov-weight-product-binomial",
+    "oeis-a284005-kurkov-lower-bit-recurrence",
+    "oeis-a329369-printed-row-sum-range"
+  ],
+  "topic": "Binary Stirling row edges, rising-factorial expansions and corrected suffix identities",
+  "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "We prove Kurkov's row-edge conjecture in OEIS A358612, revision 52, FORMULA, first conjectured formula, for every nonnegative row index, and give a polynomial refinement of Ehrenborg and Steingrímsson's excedance formulas (2000, Lemma 6.2, Theorem 6.3 and Proposition 6.5) extending the binary-product consequences in Erlbacher's note (July 2026, Section 2 and Theorem 3.1). The last entry is A284005(n)/(1+wt(n))!, where wt is binary weight. A dyadic block formula gives integral positive support and identifies the complete row with a rising-factorial expansion of the polynomials in A373183. This proves the signed factorial companion in A358612, two Stirling-basis identities in A373183, and the conjectured identity in MathOverflow question 483753. We also prove the lower-bit and binomial identities in A284005 and A341392, rederive the known Boolean transform of excedance counts, and characterize equality in a sharp lower bound. The printed unrestricted suffix identities fail; corrected statements hold for 0<=q<2^m, with a nonzero prefix in the generalized initial-factorial version.",
+  "summary": "All-index written proofs establish the edge and complete polynomial connection. The unrestricted suffix assertion fails at (n,m,q)=(2,0,1), giving 1 versus 7; it holds for 0<=q<2^m. The generalized factorial-seed version additionally requires a nonzero prefix in the stated correction. Pinned Lean declarations cover the rational block, vanishing above the edge, edge quotient, numerator binomial identity and three-term polynomial recurrence. Exact finite checks and their ranges are in verification.json.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
+}

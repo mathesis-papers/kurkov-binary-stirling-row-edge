@@ -1,0 +1,11 @@
+{
+  "schema": "mathesis.materials.v1",
+  "work": "kurkov-binary-stirling-row-edge",
+  "version": 2,
+  "repository_url": "https://github.com/mathesis-papers/kurkov-binary-stirling-row-edge",
+  "site_url": "https://papers.trureturing.org/kurkov-binary-stirling-row-edge/",
+  "doi": null,
+  "reading": {},
+  "slides": [],
+  "visualizations": []
+}

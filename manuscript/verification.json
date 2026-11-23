@@ -1,0 +1,138 @@
+{
+  "arithmetic": "exact rational and unbounded Python integers",
+  "array_range": {
+    "columns": [
+      0,
+      17
+    ],
+    "rows": [
+      0,
+      4095
+    ]
+  },
+  "array_sha256": "0835243a12d97a35ca117c9dff8223aeba4d36c8544a8eece5392ec45f6eab90",
+  "binomial_range": {
+    "base_rows": [
+      0,
+      127
+    ],
+    "exponents": [
+      0,
+      8
+    ]
+  },
+  "checks": {
+    "block_identities": 65520,
+    "column_two": 4096,
+    "edge_binomial": 1152,
+    "edge_identities": 4096,
+    "even_step_recurrences": 8190,
+    "gap_products": 4096,
+    "product_binomial": 1152,
+    "product_odd_recurrence": 4096,
+    "scalar_entries": 73728,
+    "stirling_entries": 221
+  },
+  "scope": "Finite checks of the scalar recurrence and stated identities; all-index arguments are in note.tex.",
+  "siblings": {
+    "checks": {
+      "boolean_transforms": 8192,
+      "corrected_generalized_suffix_identities": 7812,
+      "corrected_suffix_identities": 1984,
+      "eulerian_weight_sums": 91,
+      "exact_polynomial_support_and_edge": 4096,
+      "excedance_recurrence_comparisons": 4096,
+      "explicit_counterexamples": 2,
+      "factorial_row_sums": 13,
+      "falling_factorial_connections": 4096,
+      "general_initial_factorial_recurrences": 1024,
+      "lower_bit_identities": 8188,
+      "polynomial_blocks_and_signed_factorial_sums": 1152,
+      "polynomial_connections": 4096,
+      "sharp_inequality_and_equality": 4096
+    },
+    "counterexamples": [
+      {
+        "identity": "unrestricted suffix",
+        "left": 1,
+        "m": 0,
+        "n": 2,
+        "q": 1,
+        "right": 7
+      },
+      {
+        "identity": "generalized suffix at zero prefix",
+        "k": 2,
+        "left": 2,
+        "m": 1,
+        "n": 0,
+        "q": 0,
+        "right": 4
+      }
+    ],
+    "ranges": {
+      "all_row_properties": [
+        0,
+        4095
+      ],
+      "generalized_suffix": {
+        "initial_degree": [
+          1,
+          4
+        ],
+        "prefix": [
+          1,
+          63
+        ],
+        "suffix": "all 0 <= q < 2^m",
+        "width": [
+          0,
+          4
+        ]
+      },
+      "initial_factorial": {
+        "initial_degree": [
+          1,
+          4
+        ],
+        "rows": [
+          0,
+          255
+        ]
+      },
+      "polynomial_blocks": {
+        "exponent": [
+          0,
+          8
+        ],
+        "parent": [
+          0,
+          127
+        ]
+      },
+      "suffix": {
+        "prefix": [
+          0,
+          63
+        ],
+        "suffix": "all 0 <= q < 2^m",
+        "width": [
+          0,
+          4
+        ]
+      },
+      "weight_and_factorial_sums_max_width": 12
+    }
+  },
+  "status": "pass",
+  "stirling_range": {
+    "columns": [
+      1,
+      17
+    ],
+    "exponents": [
+      0,
+      12
+    ]
+  }
+}

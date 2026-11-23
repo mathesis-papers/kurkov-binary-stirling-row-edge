@@ -1,0 +1,661 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\newcommand{\wt}{\operatorname{wt}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\title{Kurkov's binary Stirling row edge and extensions of
+Ehrenborg--Steingr\'imsson and Erlbacher}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{November 18, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove Kurkov's row-edge conjecture in OEIS A358612, revision 52,
+FORMULA, first conjectured formula, for every nonnegative row index,
+and give a polynomial refinement of Ehrenborg and Steingr\'imsson's
+excedance formulas (2000, Lemma 6.2, Theorem 6.3 and Proposition 6.5)
+extending the binary-product consequences in Erlbacher's note (July 2026,
+Section 2 and Theorem 3.1).
+The last entry is A284005$(n)/(1+\wt(n))!$, where $\wt$ is binary weight.
+A dyadic block formula gives integral positive support and identifies
+the complete row with a rising-factorial expansion of the polynomials
+in A373183. This proves the signed factorial companion in A358612,
+two Stirling-basis identities in A373183, and the conjectured identity
+in MathOverflow question 483753. We also prove the lower-bit and binomial
+identities in A284005 and A341392, rederive the known Boolean transform
+of excedance counts, and characterize equality in a sharp lower bound.
+The printed unrestricted suffix identities fail; corrected statements
+hold for $0\leq q<2^m$, with a nonzero prefix in the generalized
+initial-factorial version.
+\end{abstract}
+
+\section{The array and the row-edge question}
+Kurkov's extended Stirling array~\cite{array} has row length
+$\wt(n)+2$. Its conjectured last entry is the quotient defining
+A341392~\cite{edge}. We establish both statements from the scalar
+recurrence, rather than assuming the row length when computing the edge.
+The block formula conjectured by Kurkov on June 21, 2024, is the
+intermediate result that removes the within-row correction term.
+Ehrenborg and Steingr\'imsson~\cite{excedance} give the underlying
+excedance-set recurrences and inclusion--exclusion formula. Their
+Proposition 6.5 supplies the all-ones special case of the signed
+factorial formula. Here the polynomial identity applies to every binary
+pattern and connects those counts to the literal rational array.
+Erlbacher~\cite[Section 2 and Theorem 3.1]{erlbacher} derives the
+binary prefix product and interprets it using ordered set partitions.
+Our gap product is a regrouping of that established product, whereas
+the row-edge theorem identifies it with the rational array's last entry.
+Kurkov's December 2, 2020 comments~\cite{comments} already state the
+equivalent product in binary run lengths.
+The recurrence already appears, with its corrected plus sign, in the
+November 22, 2022 MathOverflow question~\cite{precursor}.
+
+All row and column indices are integers. Write $\mathbb N=\{0,1,\ldots\}$
+and $\wt(n)$ for the number of ones in the binary expansion of $n$.
+Define $T(n,k)\in\mathbb Q$ for $n,k\in\mathbb N$ by
+\begin{equation}\label{initial}
+ T(n,0)=0,\quad T(n,1)=1,\quad T(0,2)=1,\quad T(0,k)=0\ (k>2).
+\end{equation}
+For $k\geq2$, the positive-row recurrences are
+\begin{align}
+ T(2m+1,k)&=kT(m,k)+T(m,k-1) &&(m\geq0),\label{odd}\\
+ T(2m,k)&=kT(m,k)+T(m,k-1)
+ -\frac{T(2m,k-1)+T(m,k-1)}{k-1}
+ &&(m\geq1).\label{even}
+\end{align}
+These equations determine the array uniquely: order pairs $(n,k)$
+lexicographically, with the row first. In \eqref{even} the same-row term
+has a smaller column; every other recursive term has a smaller row.
+Column zero is a convention, not an additional source-domain equation.
+
+Let $a(0)=1$ and
+\begin{equation}\label{productrec}
+ a(n)=(1+\wt(n))a(\lfloor n/2\rfloor)\qquad(n>0).
+\end{equation}
+This is A284005~\cite{product}, including its data value $a(1)=2$;
+its NAME states the recurrence for $n>1$.
+Set $e(n)=a(n)/(1+\wt(n))!$, the definition of A341392.
+
+\begin{theorem}\label{main}
+For every $n\geq0$, all $T(n,k)$ are nonnegative integers and
+\[
+ T(n,k)>0\ \Longleftrightarrow\ 1\leq k\leq\wt(n)+2.
+ \qquad
+ T(n,\wt(n)+2)=e(n).
+\]
+In particular, $e(n)$ is a positive integer, including $e(0)=1$.
+\end{theorem}
+
+\section{Dyadic blocks and the proof}
+For $n>0$, write uniquely
+\begin{equation}\label{parent}
+ n=2^r(2h+1),\qquad r=v_2(n),\qquad
+ h=\frac{n/2^r-1}{2}.
+\end{equation}
+Then $h<n$ and $\wt(n)=\wt(h)+1$. This $h$ is A025480$(n-1)$:
+iterating its rule $b(2j+1)=b(j)$ exactly $r$ times gives $b(2h)=h$.
+
+\begin{lemma}[Kurkov's block formula]\label{block}
+For $r,h\geq0$ and $k\geq2$,
+\begin{equation}\label{blockeq}
+ T(2^r(2h+1),k)=(k-1)^rT(h,k-1)+k^{r+1}T(h,k).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The case $r=0$ is \eqref{odd}. Suppose the formula holds for $r$
+at every column, and put $H_k=T(h,k)$,
+$U_k=T(2^r(2h+1),k)$, and $V_k=T(2^{r+1}(2h+1),k)$.
+At $k=2$, \eqref{even} and $U_1=V_1=H_1=1$ give
+\[
+ V_2=2U_2-1=1+2^{r+2}H_2,
+\]
+as required. For $k\geq3$, induct on $k$, using the already established
+formula for $V_{k-1}$. The two induction hypotheses give
+\[
+ \frac{V_{k-1}+U_{k-1}}{k-1}
+ =(k-2)^rH_{k-2}+k(k-1)^rH_{k-1}.
+\]
+Substitute this and the formulas for $U_k,U_{k-1}$ into
+$V_k=kU_k+U_{k-1}-(V_{k-1}+U_{k-1})/(k-1)$.
+The $H_{k-2}$ terms and the $k(k-1)^rH_{k-1}$ terms cancel, leaving
+$V_k=(k-1)^{r+1}H_{k-1}+k^{r+2}H_k$.
+This proves the induction on $k$ and then on $r$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+Use strong induction on $n$. The initial row follows from
+\eqref{initial} and $a(0)=1$. For $n>0$, use \eqref{parent} and put
+$s=\wt(h)$. By induction the positive columns of row $h$ are precisely
+$1,\ldots,s+2$ and its entries are integers. Formula~\eqref{blockeq}
+is a sum of nonnegative integer multiples of these entries.
+For $2\leq k\leq s+2$ its second term is positive; for $k=s+3$
+its first term is positive. For $k>s+3$ both terms vanish.
+Together with columns zero and one, this proves integrality and exact
+support in row $n$.
+
+At the last column the second term vanishes, so
+\begin{equation}\label{edgerec}
+ T(n,s+3)=(s+2)^r T(h,s+2).
+\end{equation}
+During the first $r+1$ halvings of $n$, the positive arguments all have
+weight $s+1$, and the next argument is $h$. Thus \eqref{productrec} gives
+$a(n)=(s+2)^{r+1}a(h)$. Applying the induction hypothesis to
+\eqref{edgerec} now yields
+\[
+ T(n,s+3)=\frac{(s+2)^ra(h)}{(s+1)!}
+          =\frac{a(n)}{(s+2)!}=e(n),
+\]
+which is the claimed edge because $\wt(n)+2=s+3$.
+\end{proof}
+
+\section{Consequences for the binary sequences}
+\begin{corollary}[Binary products and binomial identities]\label{gaps}
+If $n=\sum_{j=1}^{w}2^{b_j}>0$ with $0\leq b_1<\cdots<b_w$, put
+$d_1=b_1$ and $d_j=b_j-b_{j-1}-1$ for $j>1$. Then
+\begin{equation}\label{gapformula}
+ e(n)=\prod_{j=1}^{w}(w-j+2)^{d_j}.
+\end{equation}
+The empty product gives $e(0)=1$. Furthermore, for $m,n\geq0$,
+\begin{align}
+ e(2n+1)&=e(n),&e(2n)&=(1+\wt(n))e(n),\label{erecs}\\
+ e(2^m(2n+1))&=\sum_{j=0}^{m}\binom mj e(2^j n),\label{ebin}\\
+ a(2^m(2n+1))&=\sum_{j=0}^{m+1}\binom{m+1}j a(2^j n).\label{abin}
+\end{align}
+\end{corollary}
+\begin{proof}
+Equation~\eqref{edgerec} gives $e(2^r(2h+1))=(\wt(h)+2)^re(h)$.
+Successively remove the least significant one and its following right
+shift. The exponents encountered are $d_1,\ldots,d_w$ and the bases
+are $w+1,w,\ldots,2$, proving \eqref{gapformula}.
+The odd recurrence in \eqref{erecs} follows by taking $r=0$;
+the even recurrence follows from \eqref{productrec}, with $n=0$
+checked separately.
+
+Consequently $e(2^j n)=(1+\wt(n))^je(n)$, also for $n=0$.
+The binomial theorem makes the right side of \eqref{ebin}
+$(2+\wt(n))^me(n)$, which equals its left side by the dyadic edge
+recurrence. Similarly,
+$a(2^j n)=(1+\wt(n))^ja(n)$, including $n=0$, and
+$a(2^m(2n+1))=(2+\wt(n))^{m+1}a(n)$.
+The binomial theorem proves \eqref{abin}. These are the April 24, 2023
+displayed identities in A341392 and A284005, respectively.
+The product \eqref{gapformula} is the factorial normalization of
+the prefix product derived by Erlbacher~\cite[Section 2, (3)--(4)]{erlbacher}.
+\end{proof}
+
+The same one-step formulas give $a(2n+1)=a(n)+a(2n)$ for $n\geq0$.
+They also give the displayed even-step identities in both entries:
+\begin{equation}\label{lower}
+ a(2n)=a(n)+a(2n-2^{v_2(n)}),\qquad
+ e(2n)=e(n)+e(2n-2^{v_2(n)})\quad(n>0).
+\end{equation}
+Indeed, write $n=2^r(2h+1)$ and $s=\wt(h)$, so that
+$2n-2^r=2^r(4h+1)$. The dyadic recurrences give
+\[
+\begin{aligned}
+ a(n)&=(s+2)^{r+1}a(h),&
+ a(2n-2^r)&=(s+2)^{r+1}(s+1)a(h),\\
+ e(n)&=(s+2)^re(h),&
+ e(2n-2^r)&=(s+2)^r(s+1)e(h).
+\end{aligned}
+\]
+Thus each second expression is $\wt(n)$ times the first, proving
+\eqref{lower} by the doubling recurrences. These statements include the
+case $h=0$ because $a(0)=e(0)=1$ and $a(2h)=(1+s)a(h)$,
+$e(2h)=(1+s)e(h)$ also hold at zero.
+
+For example, $10=2^1+2^3$ gives $e(10)=3\cdot2=6$, and row ten is
+$(1,21,28,6)$. The two remaining elementary formulas in A358612 also
+follow: $T(n,2)=2n+1$ by induction using \eqref{odd} and
+$T(2m,2)=2T(m,2)-1$; and
+$T(2^j-1,k)=S(j+2,k)$ for $j\geq0,k\geq1$, by repeatedly using
+\eqref{odd} and the Stirling recurrence~\cite[Eq.~26.8.22]{dlmf},
+starting with $S(2,1)=S(2,2)=1$.
+
+\begin{corollary}[Lower-bit identities]\label{bitflip}
+Let $n=2^L+h>1$, $0\leq h<2^L$, and write $\epsilon_j$ for bit $j$
+of $h$. Then
+\begin{align}
+ a(n)&=2a(h)+\sum_{j=0}^{L-1}a\bigl(h+2^j(1-\epsilon_j)\bigr),\label{aflip}\\
+ e(n)&=e(h)+\sum_{\substack{0\leq j<L\\\epsilon_j=0}}e(h+2^j).
+ \label{eflip}
+\end{align}
+These are Kurkov's November 10, 2019 conjecture in A284005 and the
+April 24, 2023 formula in A341392, respectively. The former also answers
+the proof request in MathOverflow question 445013~\cite{lowerquestion}.
+\end{corollary}
+\begin{proof}
+Put $c_j=1+\wt(\lfloor h/2^j\rfloor)$, so $c_L=1$ and
+$c_{j+1}=c_j-\epsilon_j$. Let $p_0=1$ and
+$p_{j+1}=p_j(c_j+1)/c_j$. The product recurrence gives
+$a(n)=2p_La(h)$ and, when $\epsilon_j=0$,
+$a(h+2^j)=p_{j+1}a(h)$. Since
+\[
+ (c_{j+1}+1)p_{j+1}-(c_j+1)p_j=(1-\epsilon_j)p_{j+1},
+\]
+summing yields $2p_L=\wt(h)+2+\sum_{\epsilon_j=0}p_{j+1}$.
+This proves \eqref{aflip}, since its one-bit summands equal $a(h)$.
+Divide the equivalent identity
+$a(n)=(\wt(h)+2)a(h)+\sum_{\epsilon_j=0}a(h+2^j)$ by
+$(\wt(h)+2)!$ to obtain \eqref{eflip}. The same computation covers $h=0$.
+\end{proof}
+
+\section{The complete polynomial identity}
+For a polynomial $f\in\mathbb Q[x]$, define
+$Xf(x)=xf(x)$ and $Df(x)=x(f(x+1)-f(x))$. Define the polynomials
+of A373183~\cite{poly} by
+\[
+ R_0(x)=x,\qquad R_{2h+1}=XR_h,\qquad R_{2h}=DR_h\quad(h>0).
+\]
+The even rule also holds at $h=0$, because $Dx=x$.
+Write $P(n,q)=[x^q]R_n(x)$ for the coefficient of $x^q$.
+For $i\geq1$, let $x^{\overline i}=x(x+1)\cdots(x+i-1)$,
+and let $(x)_i=x(x-1)\cdots(x-i+1)$.
+The signed Stirling numbers $s(i,q)$ are defined by
+$(x)_i=\sum_q s(i,q)x^q$.
+
+\begin{theorem}[Polynomial refinement]\label{polynomial}
+For every $n\geq0$, putting $w=\wt(n)$, we have
+\begin{equation}\label{rising}
+ xR_n(x)=\sum_{i=1}^{w+2}(-1)^{w+2-i}T(n,i)x^{\overline i}.
+\end{equation}
+In particular, for $r,h\geq0$,
+\begin{equation}\label{risingblock}
+ R_{2^r(2h+1)}(x)=\sum_{i=1}^{\wt(h)+2}
+ (-1)^{\wt(h)+2-i}T(h,i)i^r x^{\overline i}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The elementary identities
+\[
+ D(x^{\overline i})=i x^{\overline i},\qquad
+ x^{\overline{i+1}}=(x+i)x^{\overline i}
+\]
+follow directly from the products. Denote the right side of
+\eqref{rising} by $G_n(x)$. Its initial value is
+$G_0=x^{\overline2}-x^{\overline1}=x^2=xR_0$.
+For $n=2^r(2h+1)>0$, use Lemma~\ref{block} and
+$\wt(n)=\wt(h)+1$. Reindex the term involving $T(h,i-1)$.
+The two resulting terms for index $i$ combine to give
+\[
+ G_n=\sum_i(-1)^{\wt(h)+2-i}T(h,i)i^r
+       \bigl(x^{\overline{i+1}}-i x^{\overline i}\bigr)
+     =xD^rG_h.
+\]
+There is no boundary term: $T(h,0)=0$, and columns above the support
+vanish. The column-one term is $T(n,1)=T(h,1)=1$.
+Strong induction on $n$ gives $G_h=xR_h$, and hence
+$G_n=xD^r(XR_h)=xR_n$. Applying the eigenvalue identity to $G_h$
+also proves \eqref{risingblock}.
+\end{proof}
+
+\begin{corollary}[The two Stirling-basis conjectures]\label{basis}
+For all $n\geq0$ and $q>0$,
+\begin{equation}\label{coefficient}
+ P(n,q)=(-1)^{\wt(n)-q+1}
+       \sum_{i=q+1}^{\wt(n)+2}s(i,q+1)T(n,i).
+\end{equation}
+For $r,h\geq0$ and $q>0$,
+\begin{equation}\label{coefficientblock}
+ P(2^r(2h+1),q)=(-1)^{\wt(h)-q}
+       \sum_{i=q}^{\wt(h)+2}s(i,q)T(h,i)i^r.
+\end{equation}
+These prove, respectively, the final June 19, 2024 formula and the
+January 17, 2025 conjecture in A373183, revision 28, FORMULA.
+Moreover,
+\begin{equation}\label{falling}
+ \frac1x\sum_{i=1}^{\wt(n)+2}T(n,i)(x)_i
+ =(-1)^{\wt(n)+1}R_n(-x).
+\end{equation}
+Thus the conjectured identity in MathOverflow question 483753,
+December 7, 2024~\cite{mo}, holds as a polynomial identity.
+\end{corollary}
+\begin{proof}
+The coefficient of $x^q$ in $x^{\overline i}$ is
+$(-1)^{i-q}s(i,q)$. Extract coefficients in \eqref{rising} and
+\eqref{risingblock}. Replacing $x$ by $-x$ in \eqref{rising} and
+using $(-x)^{\overline i}=(-1)^i(x)_i$ gives \eqref{falling}.
+Each falling factorial is divisible by $x$, so the quotient is a
+polynomial, including at $x=0$.
+\end{proof}
+
+\section{Excedance counts and Boolean transforms}
+Let $b(n)$ denote A329369~\cite{excentry}, the excedance-set count
+specified by the binary digits of $n$. Its established recurrences are
+$b(0)=1$, $b(2h+1)=b(h)$ and, for $h>0$,
+\begin{equation}\label{brec}
+ b(2h)=b(h)+b(h-2^{v_2(h)})+b(2h-2^{v_2(h)}).
+\end{equation}
+They are the word recurrences of Ehrenborg and
+Steingr\'imsson~\cite[Propositions 2.1 and 2.5]{excedance}.
+
+\begin{corollary}[Signed factorial companion]\label{signed}
+For $r,h\geq0$,
+\begin{equation}\label{factorialsum}
+ b(2^r(2h+1))=\sum_{i=1}^{\wt(h)+2}
+ (-1)^{\wt(h)+2-i}i!i^rT(h,i).
+\end{equation}
+This proves the second conjectured formula in A358612, revision 52,
+FORMULA. For $h=2^j-1$, it specializes to Ehrenborg and
+Steingr\'imsson's formula for two-block words~\cite[Proposition 6.5]{excedance}.
+\end{corollary}
+\begin{proof}
+Direct expansion gives $DX=X+ D+XD$. Write $h=2^t(2u+1)>0$.
+Apply $D^t$ to this operator identity acting on $R_u$. The result is
+\[
+ R_{2h}=R_h+R_{h-2^t}+R_{2h-2^t},
+\]
+because $h-2^t=2^{t+1}u$ and $2h-2^t=2^t(4u+1)$.
+This also holds at $u=0$, using $D^jR_0=R_0$.
+The numbers $R_n(1)$ therefore satisfy \eqref{brec}, the odd rule,
+and the same initial value as $b(n)$. These rules uniquely determine
+$b$ by induction on the index, so $R_n(1)=b(n)$.
+Evaluate \eqref{risingblock} at $x=1$, where
+$1^{\overline i}=i!$. The all-ones specialization uses
+$T(2^j-1,i)=S(j+2,i)$.
+\end{proof}
+
+Write $k\subseteq_2 n$ when every one-bit of $k$ is a one-bit of $n$.
+\begin{corollary}[Boolean transform; known excedance consequence]\label{boolean}
+For $n\geq0$,
+\begin{equation}\label{bool}
+ a(n)=\sum_{k\subseteq_2 n}b(k),\qquad
+ b(n)=\sum_{k\subseteq_2 n}(-1)^{\wt(n)-\wt(k)}a(k).
+\end{equation}
+The first identity is Kurkov's March 10, 2023 conjecture in A284005;
+the second is the inverse-transform conjecture in A329369.
+They are consequences of Ehrenborg and Steingr\'imsson's
+Lemma 6.2 and Theorem 6.3 (2000); the following proof gives their
+operator form in the present notation.
+JetfiRex's later answer~\cite{jetfirex} discusses the same transform
+through constrained permutations and Boolean inversion.
+\end{corollary}
+\begin{proof}
+Read the binary digits from most to least significant, applying $X$
+for a one and $D$ for a zero to the initial polynomial $x$.
+This constructs $R_n$. Summing over all submasks replaces each $X$
+by $D+X$. On the rising-factorial basis,
+$(D+X)x^{\overline i}=x^{\overline{i+1}}$ and
+$Dx^{\overline i}=i x^{\overline i}$.
+Consequently the sum evaluates at $x=1$ to
+$(\wt(n)+1)!\prod_{j=1}^{\wt(n)}(\wt(n)-j+2)^{d_j}=a(n)$,
+by Corollary~\ref{gaps}. Leading zero padding acts as $Dx=x$.
+Boolean inclusion--exclusion gives the inverse identity, since for
+$\ell\subseteq_2 n$ the sum
+$\sum_{\ell\subseteq_2 k\subseteq_2 n}(-1)^{\wt(n)-\wt(k)}$
+equals $[\ell=n]$. Finally, Lucas's parity rule identifies
+$k\subseteq_2 n$ with $\binom nk$ odd: over $\mathbb F_2$,
+$(1+z)^n=\prod_{j:\,n_j=1}(1+z^{2^j})$.
+\end{proof}
+
+\begin{corollary}[General initial factorials]\label{initialfactorials}
+Let $\mathcal L_n$ be the operator word that constructs $R_n$ from $x$,
+reading the shortest binary expansion of $n$, with $\mathcal L_0=I$.
+For an integer $k>0$ set $U_{n,k}=\mathcal L_n x^{\overline k}$.
+Then A357990$(n,k)=U_{n,k}(1)/k!$, and in particular
+A357990$(n,1)=b(n)$, its conjectured first column~\cite{square}.
+If
+\[
+ d(n,k,j)=[x^{\wt(n)+k-j+1}]U_{n,k}(x),
+\]
+where coefficients outside the polynomial are zero, these are precisely
+Kurkov's $d$ coefficients in the June 19, 2024 formulas of A373183.
+Thus those formulas for $P(n,q)$, for the generalized initial polynomial,
+and for $d(n,1,1)=e(n)$ hold.
+\end{corollary}
+\begin{proof}
+For $n=2^L+h>0$, let $t$ be the bit length of $h$, with $t=0$ at zero,
+and put $g=L-t$. The leading-one decomposition is
+$\mathcal L_n=\mathcal L_hD^gX$. Therefore
+\[
+ U_{n,k}=(k+1)^gU_{h,k+1}-k^{g+1}U_{h,k}.
+\]
+After evaluation at one and division by $k!$, this becomes
+$(k+1)^{g+1}F_h(k+1)-k^{g+1}F_h(k)$, with $F_0(k)=1$.
+This is exactly the defining recurrence of A357990.
+Taking coefficients in reverse degree gives
+\[
+ d(n,k,j)=(k+1)^gd(h,k+1,j)-k^{g+1}d(h,k,j-1).
+\]
+At zero, $d(0,k,j)=|s(k,k-j+1)|$ for $1\leq j\leq k$, and
+$d(n,k,0)=0$. These agree with the source's initial values and recurrence.
+For $k=1$, $U_{n,1}=R_n$, whose leading coefficient is $e(n)$ as shown
+in Corollary~\ref{sharp} below.
+\end{proof}
+
+\begin{corollary}[A corrected suffix range]\label{suffix}
+The second conjectured formula in A373183, revision 28, and
+Conjecture 6 in A329369, revision 236 (June 5, 2024), hold with the range
+\begin{equation}\label{suffixrange}
+ n,m\geq0,\qquad 0\leq q<2^m:
+ \qquad b(2^mn+q)=\sum_{i=1}^{\wt(n)+1}
+ P(n,i)b(2^m(2^{i-1}-1)+q).
+\end{equation}
+Their printed range $q\geq0$, with no upper bound, fails at
+$(n,m,q)=(2,0,1)$: the left side is $1$ and the right side is $7$.
+For the June 19, 2024 generalized $d$ sum in A373183, a valid range is
+$n>0$, $k>0$, $m\geq0$, $0\leq q<2^m$, and the identity is
+\begin{equation}\label{dsuffix}
+ k!\,\mathrm{A357990}(2^mn+q,k)
+ =\sum_{i=1}^{\wt(n)+k}d(n,k,\wt(n)-i+k+1)
+       b(2^m(2^{i-1}-1)+q).
+\end{equation}
+The printed generalized range also fails at $(n,k,m,q)=(0,2,1,0)$:
+the two sides are $2$ and $4$ respectively.
+\end{corollary}
+\begin{proof}
+Let $\mathcal S_{m,q}$ be the operator word for the $m$-digit binary
+suffix $q$, including leading zeros. For $q<2^m$, concatenation gives
+$R_{2^mn+q}=\mathcal S_{m,q}R_n$.
+This remains valid at $n=0$ because $Dx=x$.
+Since $R_{2^{i-1}-1}=x^i$, applying the linear functional
+$f\mapsto(\mathcal S_{m,q}f)(1)$ to
+$R_n=\sum_iP(n,i)x^i$ proves \eqref{suffixrange}.
+For $n>0$, the same concatenation gives
+$U_{2^mn+q,k}=\mathcal S_{m,q}U_{n,k}$ and proves \eqref{dsuffix}.
+The source's lower limit $v_2(n+1)+1$ can be restored because all lower
+coefficients vanish: an odd digit shifts the minimum degree, and a zero
+digit resets it to one.
+For the first counterexample, $R_2=x+2x^2$ and
+$(b(0),b(1),b(2),b(3))=(1,1,3,1)$, so $1\ne1+2\cdot3$.
+For the second, $U_{0,2}=x+x^2$, so the sum is $b(0)+b(2)=4$,
+whereas $2!\,\mathrm{A357990}(0,2)=2$.
+At $n=0$ the generalized concatenation cannot discard leading zeros:
+$Dx^{\overline k}=kx^{\overline k}$, rather than $x^{\overline k}$.
+\end{proof}
+
+\begin{corollary}[Sharp comparison with the edge]\label{sharp}
+For all $n\geq0$,
+\[
+ b(n)\geq2e(n)-1.
+\]
+For $n>0$, equality holds exactly when deleting the leading one-bit
+leaves only trailing ones (zero is allowed). Equality also holds at zero.
+\end{corollary}
+\begin{proof}
+The coefficients of $R_n$ are positive exactly in degrees
+$v_2(n+1)+1,\ldots,\wt(n)+1$. Indeed $X$ shifts the support by one;
+for a polynomial with nonnegative coefficients and positive leading
+coefficient in degree $d>0$, $D$ has positive coefficients in every
+degree $1,\ldots,d$, since
+$Dx^j=\sum_{q=1}^j\binom j{q-1}x^q$.
+This proves the support statement by induction, starting with $R_0=x$.
+The leading coefficient is $e(n)$: $X$ preserves it, $D$ multiplies it
+by the degree, and these are exactly \eqref{erecs}.
+Also $R_n(-1)=(-1)^{\wt(n)+1}$, by the odd rule and
+$DR_n(-1)=R_n(-1)$, since $R_n(0)=0$.
+Writing $d=\wt(n)+1$ therefore gives
+\[
+ b(n)=2e(n)-1+
+ 2\sum_{\substack{1\leq q<d\\q\equiv d\pmod2}}P(n,q).
+\]
+The sum vanishes exactly when $v_2(n+1)+1>d-2$, or
+$v_2(n+1)\geq\wt(n)-1$. For $n>0$ this is precisely the stated
+binary condition. At $n=0$ both sides equal one.
+\end{proof}
+Since A036987 is the indicator of integers $t$ for which $t+1$ is a
+power of two~\cite{indicator}, this criterion proves the bracketed
+comparison in A341392: the indicator of $2e(n)-1=b(n)$ is
+A036987$(\mathrm{A053645}(n))$, where A053645 deletes the leading
+one-bit and maps zero to zero. The unrestricted equality
+$2e(n)-1=b(n)$ is not asserted by that bracketed formula.
+
+\begin{corollary}[Sums by binary weight]\label{eulerian}
+For $L,k\geq0$,
+\[
+ \sum_{\substack{0\leq n<2^L\\\wt(n)=k}}b(n)
+ =\genfrac{\langle}{\rangle}{0pt}{}{L+1}{k},
+ \qquad \sum_{0\leq n<2^L}b(n)=(L+1)!,
+\]
+where the Eulerian number in brackets counts permutations of $L+1$
+elements with exactly $k$ excedances.
+\end{corollary}
+\begin{proof}
+The $L$ binary digits specify each subset of $\{1,\ldots,L\}$ exactly
+once, and $b(n)$ counts the permutations having that excedance set
+\cite{excedance,excentry}. Grouping by cardinality proves the first
+identity and summing over all subsets proves the second. Thus
+Conjecture 7 in A329369, dated January 27, 2025, follows directly from
+the established excedance interpretation.
+\end{proof}
+
+\section{Coverage and verification}
+The source items covered by the argument are distinguished below from
+related questions that require a different argument. ``Not covered''
+specifies this note's scope, not the current status of those questions.
+
+\begingroup\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.56\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}}
+\toprule
+Source item & Coverage\\\midrule
+A358612, row length and first conjectured formula & Proved, Theorem~\ref{main}\\
+A358612, June 21, 2024 block conjecture & Proved, Lemma~\ref{block}\\
+A358612, column two and all-ones rows & Proved above\\
+Binary-gap product for A341392 & Reproved; prior product proof Erlbacher (2026), Section 2\\
+A341392, April 24, 2023 binomial identity & Proved, \eqref{ebin}\\
+A284005, April 24, 2023 binomial conjecture & Proved, \eqref{abin}\\
+A341392/A284005, displayed odd and even-step recurrences & Proved, \eqref{erecs}, \eqref{lower} and the text\\
+A358612, signed factorial sum; A329369 Conjecture 4 & Proved, Corollary~\ref{signed}; two-block case reproved, prior proof Ehrenborg--Steingr\'imsson (2000), Proposition 6.5\\
+A284005, November 10, 2019 lower-bit conjecture; A341392, April 24, 2023 bit-flip formula & Proved, Corollary~\ref{bitflip}\\
+A284005, March 10, 2023 Boolean transform; A329369 inverse-transform conjecture & Reproved, Corollary~\ref{boolean}; prior proof Ehrenborg--Steingr\'imsson (2000), Lemma 6.2 and Theorem 6.3\\
+A373183, June 19, 2024 Stirling-basis formula and January 17, 2025 conjecture & Proved, Corollary~\ref{basis}\\
+MathOverflow 483753, displayed conjecture and request for a proof & Proved; answered: yes, Corollary~\ref{basis}\\
+A357990 first-column conjecture; A329369 Conjecture 3 & Proved, Corollary~\ref{initialfactorials}\\
+A373183, June 19, 2024 $d$ recurrence, initial-factorial extension and leading coefficient & Proved, Corollary~\ref{initialfactorials}\\
+A373183, first three-term polynomial conjecture & Proved in Corollary~\ref{signed}\\
+A373183 second conjecture; A329369 Conjecture 6 (unrestricted suffix) & Refuted-and-corrected, Corollary~\ref{suffix}, \eqref{suffixrange}\\
+A373183, June 19, 2024 generalized $d$ sum & Refuted-and-corrected, Corollary~\ref{suffix}, \eqref{dsuffix}\\
+A341392, bracketed equality comparison with A329369 & Proved by the equality criterion in Corollary~\ref{sharp}\\
+The bound $b(n)\geq2e(n)-1$ & Not posed; proved, Corollary~\ref{sharp}\\
+A329369, factorial row sum and Conjecture 7 & Reproved; prior count interpretation Ehrenborg--Steingr\'imsson (2000), Corollary~\ref{eulerian}\\
+MathOverflow 445013, request for a lower-bit recurrence proof & Answered: yes, Corollary~\ref{bitflip}\\
+A329369, July 10, 2024 two-parameter Stirling recursion & Prior proof cited: Alekseyev (2024)~\cite{alekseyev}; not needed here\\
+A373183, long $W$-coefficient expansion; A329369 rook-tour interpretation and Conjectures 5, 8--10 & Not covered\\
+A341392, A243499 value-set/coordinate identities and FindStat mappings; A284005 divisor-count identity & Not covered\\
+A358631 first-kind array & Not covered\\
+MathOverflow 486535, sums of the binary Stirling coefficients~\cite{aggregate} & Not covered\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\begingroup\raggedright
+Every result claimed here has a written proof. The pinned Lean source
+\href{https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean}{\texttt{DyadicExtendedStirlingEdge.lean}}
+contains \texttt{support}, the vanishing statement above the binary-weight
+edge, and \texttt{result}, the rational edge identity for all $n\in\mathbb N$.
+The definition of $T$ and declaration \texttt{dyadic\_extended\_stirling\_block}
+are in the pinned
+\href{https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingBlock.lean}{\texttt{DyadicExtendedStirlingBlock.lean}}.
+The definition of $a$, its dyadic identity \texttt{a\_two\_pow\_mul\_odd},
+and \eqref{abin} as \texttt{result} are in the pinned
+\href{https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Digit/KurkovWeightProductBinomial.lean}{\texttt{KurkovWeightProductBinomial.lean}}.
+Here \texttt{wt} is the binary digit sum defined in the pinned
+\href{https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Digit/DyadicRowPolynomialRecurrence.lean}{\texttt{DyadicRowPolynomialRecurrence.lean}}.
+That file also contains \texttt{D\_X\_mul}, the operator relation
+$DX=X+(X+1)D$, and \texttt{conjecture1}, the three-term polynomial
+recurrence used in Corollary~\ref{signed}. Its \texttt{R\_degree}
+is an upper bound, not the exact positive-support statement.
+Strict positivity, integrality, the gap and lower-bit formulas, the complete
+rising-factorial connection, all coefficient and signed-transform
+consequences, the corrected suffix ranges and the sharp inequality have
+the written proofs given here. The edge file's \texttt{support} asserts
+vanishing above the edge, not positivity below it.\par
+\endgroup
+
+\begin{samepage}
+The accompanying \texttt{verify.py} evaluates the original recurrence in
+exact rational arithmetic for $0\leq n\leq4095$, $0\leq k\leq17$.
+It checks the block formula, exact support, edge identity, polynomial
+identities, signed and Boolean transforms, lower-bit formulas, corrected
+suffix identities, counterexamples and the sharp bound on its stated
+finite ranges. The output \texttt{verification.json} records those ranges;
+these checks supplement the all-index proofs.\par
+\end{samepage}
+
+\begin{thebibliography}{99}
+\bibitem{array} M. Kurkov, \emph{Irregular triangle of extended Stirling
+numbers of the second kind}, OEIS A358612, revision 52, March 16, 2026;
+FORMULA and COMMENTS.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/d8ad22d9b98d2c427be8c6cd9f2672c600b8e3ae/seq/A358/A358612.seq}{Version-specific entry}.
+\bibitem{edge} M. Kurkov, \emph{A284005$(n)/(1+\mathrm{A000120}(n))!$},
+OEIS A341392, revision 56; NAME and FORMULA.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/d8ad22d9b98d2c427be8c6cd9f2672c600b8e3ae/seq/A341/A341392.seq}{Version-specific entry}.
+\bibitem{product} A. Karttunen, \emph{Binary-weight product sequence},
+OEIS A284005, revision 106; NAME, DATA, and Kurkov's FORMULA of
+April 24, 2023.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/d8ad22d9b98d2c427be8c6cd9f2672c600b8e3ae/seq/A284/A284005.seq}{Version-specific entry}.
+\bibitem{dlmf} NIST, \emph{Digital Library of Mathematical Functions},
+\S26.8, Set Partitions: Stirling Numbers, Eq.~26.8.22.
+\url{https://dlmf.nist.gov/26.8.E22}.
+\bibitem{mo} user231922, \emph{Generalized identity with Stirling numbers
+of the second kind and falling factorials}, MathOverflow question 483753,
+December 7, 2024. \url{https://mathoverflow.net/q/483753}.
+\bibitem{poly} M. Kurkov, \emph{Irregular triangle with row polynomials},
+OEIS A373183, revision 28, March 16, 2026; NAME and FORMULA.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/d8ad22d9b98d2c427be8c6cd9f2672c600b8e3ae/seq/A373/A373183.seq}{Version-specific entry}.
+\bibitem{excentry} M. Kurkov, \emph{Number of permutations with a prescribed
+binary excedance set}, OEIS A329369, revision 236, March 14, 2026;
+NAME, COMMENTS and FORMULA.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/d8ad22d9b98d2c427be8c6cd9f2672c600b8e3ae/seq/A329/A329369.seq}{Version-specific entry}.
+\bibitem{excedance} R. Ehrenborg and E. Steingr\'imsson,
+\emph{The excedance set of a permutation}, Advances in Applied Mathematics
+\textbf{24} (2000), 284--299. \href{https://doi.org/10.1006/aama.1999.0671}{doi:10.1006/aama.1999.0671}.
+\href{https://www.ms.uky.edu/~jrge/papers/Excedance.pdf}{Author-hosted full text}.
+\bibitem{square} M. Kurkov, \emph{Square array defined by a leading-bit
+recurrence}, OEIS A357990, revision 41, March 29, 2026; NAME and FORMULA.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/d8ad22d9b98d2c427be8c6cd9f2672c600b8e3ae/seq/A357/A357990.seq}{Version-specific entry}.
+\bibitem{alekseyev} M. Alekseyev, \emph{Recursion for the sum with Stirling
+numbers of both kinds}, MathOverflow answer 474668, July 8, 2024.
+\url{https://mathoverflow.net/a/474668}.
+\bibitem{indicator} \emph{Fredholm--Rueppel sequence}, OEIS A036987,
+revision 243, November 28, 2025; COMMENTS and FORMULA.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/d8ad22d9b98d2c427be8c6cd9f2672c600b8e3ae/seq/A036/A036987.seq}{Version-specific entry}.
+\bibitem{erlbacher} J. Erlbacher, \emph{A proof of Kurkov's conjecture for
+A000670}, July 2026, Section 2 and Theorem 3.1.
+\href{https://raw.githubusercontent.com/demonstrandum-research/artifacts/de462739d3afc6bfb3316d69a840ab4f75007aa9/papers/kurkov-a000670/note.pdf}{Version-specific full text}.
+\bibitem{precursor} user231922, \emph{Closed form for coefficients related
+to excedance set of permutation}, MathOverflow question 435104,
+November 22, 2022; recurrence corrected that day at 11:15:51 UTC.
+\url{https://mathoverflow.net/q/435104}.
+\bibitem{comments} M. Kurkov, \emph{Comments on A284005},
+December 2, 2020; binary run-length product.
+\url{https://oeis.org/A284005/a284005.txt}.
+\bibitem{jetfirex} JetfiRex, answer to \emph{Sum with products turned
+into subsequences}, MathOverflow answer 413850, January 14, 2022,
+edited January 18, 2022. \url{https://mathoverflow.net/a/413850}.
+\bibitem{lowerquestion} user231922, \emph{Recurrence for the A284005},
+MathOverflow question 445013, April 18, 2023.
+\url{https://mathoverflow.net/q/445013}.
+\bibitem{aggregate} user231922, \emph{Integer coefficients that sum up to
+Stirling transform of shifted A001475}, MathOverflow question 486535,
+January 24, 2025. \url{https://mathoverflow.net/q/486535}.
+\end{thebibliography}
+\noindent\small\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
+\end{document}
