@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24446051",
     "current_version": 2,
     "doi": "10.5281/zenodo.24446052",
+    "kind": "note",
     "lean_source": {
       "revision": "47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb",
       "url": "https://github.com/the-omega-institute/trureturing/blob/47f05ad67b37a0f7cbc4673c33bb17fb7c1e78fb/D5/S1/Recurrence/Parity/DyadicExtendedStirlingEdge.lean"
@@ -55,10 +56,12 @@
     "title": "Kurkov's binary Stirling row edge and extensions of Ehrenborg–Steingrímsson and Erlbacher",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-23T17:33:13.086154303Z",
         "revision": "2",
-        "version": 2
+        "version": 2,
+        "version_label": null
       }
     ],
     "work": "kurkov-binary-stirling-row-edge"
